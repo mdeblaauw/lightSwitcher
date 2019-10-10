@@ -4,6 +4,8 @@
 
 Requirements: AWS account and Python 3.
 
+The Sandbox dictionary is a playground using Jupyter notebooks.
+
 TODO Links from which inspiration is drawn from.
 
 ## Setup Snowboy model for hot word detection
