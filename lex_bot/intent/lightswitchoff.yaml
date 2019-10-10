@@ -1,0 +1,18 @@
+name: "LightSwitchOff"
+description: "This file includes the ligth switch off intent for Amazon Lex"
+sampleUtterances:
+  - "turn the light off"
+  - "computer turn the lights off"
+  - "switch lights off"
+  - "computer lights off"
+  - "lights off"
+  - "computer can you switch the lights off"
+  - "computer can you turn the lights off"
+  - "turn lights off"
+fulfillmentActivity:
+  type: "ReturnIntent"
+conclusionStatement:
+  messages:
+    - contentType: "PlainText"
+      content: "I will turn the lights off"
+      groupNumber: 1

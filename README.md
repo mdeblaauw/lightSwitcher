@@ -6,9 +6,13 @@ Requirements: AWS account and Python 3.
 
 The Sandbox dictionary is a playground using Jupyter notebooks.
 
+The hot word used in this application is "computer". This can be changed by replacing the Snowboy model and intent utterances in Lex.
+
 TODO Links from which inspiration is drawn from.
 
-## Setup Snowboy model for hot word detection
+## Setup light switcher application
+
+### Setup Snowboy model for hot word detection
 
 You can use the Snowboy resources from this repo or set it up yourself using the following steps:
 
@@ -23,11 +27,11 @@ You can use the Snowboy resources from this repo or set it up yourself using the
 9. copy file "snowboydecoder.py" and "demo.py" from "snowboy/examples/Python3/snowboydecoder.py" to your project dictionary.
 10. You can now test snowboy by running "demo.py sources/models/snowboy.umdl" in command line.
 
-## Install AWS Lex bot 
+### Install AWS Lex bot 
 
 We use Lex for speech-to-text and intent classification. Other models are possible, such as speech-to-text models from Azure or Google cloud. However, you need to model the intent classification yourself. For example, a simple implementation is using regex.
 
-These are the steps to install the Lex bot:
+We boto3 to set Lex up, because we cannot do this with cloudformation. These are the steps to install the Lex bot:
 
 1. bla
 2. bla
