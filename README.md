@@ -4,6 +4,8 @@
 
 Requirements: AWS account and Python 3.
 
+TODO Links from which inspiration is drawn from.
+
 ## Setup Snowboy model for hot word detection
 
 You can use the Snowboy resources from this repo or set it up yourself using the following steps:
