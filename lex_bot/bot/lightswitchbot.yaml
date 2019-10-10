@@ -1,0 +1,19 @@
+name: "lightSwitchBot"
+description: "a bot that classifies to lights on or off intents"
+intents:
+  - intentName: "LightSwitchOn"
+    intentVersion: "$LATEST"
+  - intentName: "LightSwitchOff"
+    intentVersion: "$LATEST"
+clarificationPrompt:
+    messages:
+        - contentType: 'PlainText'
+          content: "I do not understand"
+    maxAttempts: 1
+abortStatement:
+    messages:
+        - contentType: 'PlainText'
+          content: "I do not understand, please reword your query."
+idleSessionTTLInSeconds: 60
+locale: 'en-US'
+childDirected: False
