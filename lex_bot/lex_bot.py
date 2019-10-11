@@ -68,7 +68,7 @@ def delete_bot(rootdir):
         except Exception as e:
             print(e)
 
-    time.sleep(5)
+    time.sleep(10)
     delete_intents(intent_folder, intents)
 
 def delete_intents(intent_folder, intents):
