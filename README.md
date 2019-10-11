@@ -38,6 +38,8 @@ We use boto3 to set Lex up, because we cannot do this with cloudformation. These
 
 ### Run light switch application on mac
 
+After Lex is deployed you can run the demo.py application which activates de pipeline. Now you can activate the application with the word "computer" and ask 'gently' to turn the lights on or off.
+
 ## Run this light switch application on a rapsberri pi
 
 TODO
