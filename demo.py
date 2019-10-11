@@ -1,18 +1,36 @@
 import wave
 
+import boto3
 from functions.source import Microphone
 from functions.listen_pipeline import Recogniser
 from functions.snowboy_app import SnowboyApp
 
+bot_name = 'lightSwitchBot'
+bot_alias = '$LATEST'
+user_id = '123456789'
+content_type = 'audio/l16; rate=16000; channels=1'
+
 rc = Recogniser()
 sb = SnowboyApp("computer.umdl")
-#print(dir(kl))
-with Microphone() as source:
-    rc.adjust_for_ambient_noise(source, duration=1)
-    audio = rc.listen(source, sb)
-    print('bla')
 
-#record audio
-#wv = audio.get_wav_data()
-#with open('bla.wav', 'wb') as output:
-#    output.write(wv)
+def pipeline():
+    with Microphone() as source:
+        rc.adjust_for_ambient_noise(source, duration=1)
+        audio = rc.listen(source, sb)
+    try:
+        response = rc.lex_recognise(audio,bot_name,bot_alias,user_id,content_type)
+        print('You said: ' + response['inputTranscript'] + '\n')
+        print(response['message'])
+        print('Intent classified as ' + response['intentName'])
+        command = response['intentName']
+    except Exception as e:
+        print(e)
+        command = pipeline()
+
+    return(command)
+
+def assistant(command):
+    print('execute commands')
+
+while True:
+    assistant(pipeline())

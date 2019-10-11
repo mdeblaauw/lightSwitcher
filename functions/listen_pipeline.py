@@ -198,3 +198,19 @@ class Recogniser(AudioData):
         frame_data = b"".join(frames)
         
         return(AudioData(frame_data, source.SAMPLE_RATE, source.SAMPLE_WIDTH))
+
+    def lex_recognise(self, audio_data, bot_name, bot_alias, user_id, content_type):
+        try:
+            import boto3
+        except ImportError:
+            raise RequestError("missing boto3 module: ensure that boto3 is set up correctly.")
+
+        client = boto3.client('lex-runtime')
+
+        raw_data = audio_data.get_raw_data(convert_rate=16000, convert_width=2)
+
+        accept = "text/plain; charset=utf-8"
+        response = client.post_content(botName=bot_name,botAlias=bot_alias,userId=user_id,contentType=content_type,accept=accept,inputStream=raw_data)
+
+        return(response)
+
