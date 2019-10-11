@@ -1,20 +1,18 @@
 import wave
 
 import boto3
-from functions.source import Microphone
-from functions.listen_pipeline import Recogniser
-from functions.snowboy_app import SnowboyApp
+import functions
 
 bot_name = 'lightSwitchBot'
 bot_alias = '$LATEST'
 user_id = '123456789'
 content_type = 'audio/l16; rate=16000; channels=1'
 
-rc = Recogniser()
-sb = SnowboyApp("computer.umdl")
+rc = functions.Recogniser()
+sb = functions.SnowboyApp("computer.umdl")
 
 def pipeline():
-    with Microphone() as source:
+    with functions.Microphone() as source:
         rc.adjust_for_ambient_noise(source, duration=1)
         audio = rc.listen(source, sb)
     try:
