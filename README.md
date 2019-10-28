@@ -51,4 +51,7 @@ sudo apt-get install python-pyaudio python3-pyaudio portaudio19-dev sox
 pip install pyaudio
 ```
 
+Second: 
+
+How to setup microphone, such as Playstation eye. See <http://docs.kitt.ai/snowboy/#running-on-pi>.
 TODO
