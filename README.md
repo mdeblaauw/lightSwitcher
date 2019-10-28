@@ -42,4 +42,13 @@ After Lex is deployed you can run the demo.py application which activates de pip
 
 ## Run this light switch application on a rapsberri pi
 
+see <https://github.com/Kitt-AI/snowboy>
+
+First: 
+
+```
+sudo apt-get install python-pyaudio python3-pyaudio portaudio19-dev sox
+pip install pyaudio
+```
+
 TODO
