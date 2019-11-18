@@ -6,7 +6,7 @@ Requirements: AWS account and Python 3.
 
 The Sandbox dictionary is a playground using Jupyter notebooks.
 
-The hot word used in this application is "computer". This can be changed by replacing the Snowboy model and intent utterances in Lex.
+The hot word used in this application is "computer". This can be changed by replacing the Snowboy model and intent utterances in AWS Lex.
 
 TODO Links from which inspiration is drawn from.
 
@@ -40,18 +40,26 @@ We use boto3 to set Lex up, because we cannot do this with cloudformation. These
 
 After Lex is deployed you can run the demo.py application which activates de pipeline. Now you can activate the application with the word "computer" and ask 'gently' to turn the lights on or off.
 
-## Run this light switch application on a rapsberri pi
+## Run this light switch application on a Raspberri Pi
 
-see <https://github.com/Kitt-AI/snowboy>
+### Requirements
 
-First: 
+1. Docker container.
+2. Raspberry pi (only tested with pi 4) with Raspbian.
+3. Audio device (only tested with a playstation 3 eye).
+
+You can install Docker container as follows:
 
 ```
-sudo apt-get install python-pyaudio python3-pyaudio portaudio19-dev sox swig
-pip install pyaudio
+curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 ```
 
-Second: 
+### Run light switch application
 
-How to setup microphone, such as Playstation eye. See <http://docs.kitt.ai/snowboy/#running-on-pi>.
-TODO
+1. git clone this repo on the raspberry pi.
+2. TODO Amazon lex run.
+3. Setup `~/.asoundrc` file. See <http://docs.kitt.ai/snowboy/> under `Running on Raspberry Pi`.
+4. Run `docker build -t lightswitch .` in the main directory of this repo.
+5. Run application interactive by executing `docker run -it --device /dev/snd lightswitch`. (TODO: aws configure credentials and device index input)
+
+TODO: image COPY repo. Hence, not necessary to git clone this repo again in image.
