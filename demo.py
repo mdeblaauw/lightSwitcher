@@ -12,7 +12,7 @@ rc = functions.Recogniser()
 sb = functions.SnowboyApp("computer.umdl")
 
 def pipeline():
-    with functions.Microphone(device_index=0) as source:
+    with functions.Microphone(device_index=2) as source:
         rc.adjust_for_ambient_noise(source, duration=1)
         audio = rc.listen(source, sb)
     try:
