@@ -45,7 +45,7 @@ After Lex is deployed you can run the demo.py application which activates de pip
 ### Requirements
 
 1. Docker container.
-2. Raspberry pi (only tested with pi 4) with Raspbian.
+2. Raspberry pi (only tested with pi 4), with Raspbian and python3 installed.
 3. Audio device (only tested with a playstation 3 eye).
 
 You can install Docker container as follows:
@@ -57,9 +57,11 @@ curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 ### Run light switch application
 
 1. git clone this repo on the raspberry pi.
-2. TODO Amazon lex run.
-3. Setup `~/.asoundrc` file. See <http://docs.kitt.ai/snowboy/> under `Running on Raspberry Pi`.
-4. Run `docker build -t lightswitch .` in the main directory of this repo.
-5. Run application interactive by executing `docker run -it --device /dev/snd lightswitch`. (TODO: aws configure credentials and device index input)
+2. Install awscli with `pip3 install awscli` on your Raspberry.
+3. Configure AWS credentials with `aws configure`.
+3. Go to the `lex_bot/` directory and run `python lex_bot.py deploy`. This deploys the AWS lex bot on your AWS account.
+4. Setup `~/.asoundrc` file. See <http://docs.kitt.ai/snowboy/> under section `Running on Raspberry Pi`.
+5. Run the `docker build -t lightswitch .` in the main directory of this repo.
+6. Run the application in interactive mode by executing `docker run -v /Users/<user>/.aws/:/home/pi/.aws/ -it --device /dev/snd lightswitch`. The `<user>` you need to fill in from your `.aws` path.
 
-TODO: image COPY repo. Hence, not necessary to git clone this repo again in image.
+TODO: device index might be dependent on usb audio device input.
